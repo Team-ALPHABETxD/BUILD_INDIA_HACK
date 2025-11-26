@@ -7,6 +7,8 @@
 
 This is a project containing Jupyter Notebooks (e.g. `Initial.ipynb`, `Optimisation.ipynb`) that implement your model and experiments. This README describes how to set up the environment, run the code, reproduce results, and interpret outputs.
 
+Report of the Project: https://drive.google.com/file/d/1UetSjnMJKy4sCiTbH08kAEgrXwdilxGi/view?usp=sharing
+
 ## Table of Contents
 
 * [Introduction](#introduction)
