@@ -1,136 +1,116 @@
-BUILD_INDIA_HACK
-Introduction
 
-BUILD_INDIA_HACK is a project containing Jupyter Notebooks (e.g. Initial.ipynb, Optimisation.ipynb) that implement your model and experiments. This README describes how to set up the environment, run the code, reproduce results, and interpret outputs.
+---
 
-Table of Contents
+# BUILD_INDIA_HACK
 
-Introduction
+## Introduction
 
-Prerequisites / Dependencies
+This is a project containing Jupyter Notebooks (e.g. `Initial.ipynb`, `Optimisation.ipynb`) that implement your model and experiments. This README describes how to set up the environment, run the code, reproduce results, and interpret outputs.
 
-Installation / Setup
+## Table of Contents
 
-Usage: Running the Model
+* [Introduction](#introduction)
+* [Prerequisites / Dependencies](#prerequisites--dependencies)
+* [Installation / Setup](#installation--setup)
+* [Usage: Running the Model & Testing](#usage-running-the-model)
+* [Reproducing Final Results](#reproducing-final-results)
+* [Expected Outputs & Interpretation](#expected-outputs--interpretation)
+* [Troubleshooting](#troubleshooting)
 
-Reproducing Final Results
-
-Expected Outputs & Interpretation
-
-Troubleshooting
-
-Prerequisites / Dependencies
+## Prerequisites / Dependencies
 
 Before running the notebooks, ensure you have the following installed:
 
-Python (version 3.x — recommended 3.8 or newer)
+* Python (version 3.x — recommended 3.8 or newer)
+* Jupyter Notebook / JupyterLab
+* Common scientific / data-science packages (depending on notebook content), e.g.:
 
-Jupyter Notebook / JupyterLab
+  * `numpy`
+  * `pandas`
+  * `scikit-learn` (or any ML library you're using)
+  * `matplotlib` / `seaborn` (for plotting, if needed)
+  * Any other libraries imported in the notebooks (you’ll see `import` statements at the top)
 
-Common scientific / data-science packages (depending on notebook content), e.g.:
+If there is a `requirements.txt` (not present currently), you can install dependencies with `pip install -r requirements.txt`.
 
-numpy
+> ⚠️ As of now, the repository contains only two `.ipynb` files and **no explicit dependency manifest**. It's best to inspect the notebooks and manually install any required packages.
 
-pandas
+## Installation / Setup
 
-scikit-learn (or any ML library you're using)
+1. Clone the repository:
 
-matplotlib / seaborn (for plotting, if needed)
+   ```bash
+   git clone https://github.com/Team-ALPHABETxD/BUILD_INDIA_HACK.git
+   cd BUILD_INDIA_HACK
+   ```
 
-Any other libraries imported in the notebooks (you’ll see import statements at the top)
+2. (Optional but recommended) Create a virtual environment to manage dependencies:
 
-If there is a requirements.txt (not present currently), you can install dependencies with pip install -r requirements.txt.
+   ```bash
+   python3 -m venv venv  
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   ```
 
-⚠️ As of now, the repository contains only two .ipynb files and no explicit dependency manifest. It's best to inspect the notebooks and manually install any required packages. 
-GitHub
+3. Install required packages manually (per the notebooks), e.g.:
 
-Installation / Setup
+   ```bash
+   pip install numpy pandas scikit-learn matplotlib seaborn
+   ```
 
-Clone the repository:
+4. Launch Jupyter Notebook / JupyterLab:
 
-git clone https://github.com/Team-ALPHABETxD/BUILD_INDIA_HACK.git
-cd BUILD_INDIA_HACK
+   ```bash
+   jupyter notebook
+   ```
 
+   or
 
-(Optional but recommended) Create a virtual environment to manage dependencies:
+   ```bash
+   jupyter lab
+   ```
 
-python3 -m venv venv  
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+5. Open and run the notebook(s), e.g. `Initial.ipynb`.
 
+## Usage: Running the Model & Testing
 
-Install required packages manually (per the notebooks), e.g.:
+* Open `Initial.ipynb` in Jupyter and run all cells (e.g. “Run → Run All”).
+* Inspect intermediate outputs such as data processing, training steps, evaluation metrics, visualizations etc.
+* To try different parameters or datasets (if supported), modify relevant cells and re-run.
+* To test performance or behavior under new inputs (if applicable), you can add new cells or functions to load custom inputs and run model inference.
 
-pip install numpy pandas scikit-learn matplotlib seaborn
+If you add more code (e.g. new scripts, helper modules), it's recommended to convert notebooks into `.py` scripts or modularize code for clarity and reproducibility.
 
-
-Launch Jupyter Notebook / JupyterLab:
-
-jupyter notebook
-
-
-or
-
-jupyter lab
-
-
-Open and run the notebook(s), e.g. Initial.ipynb.
-
-Usage: Running the Model & Testing
-
-Open Initial.ipynb in Jupyter and run all cells (e.g. “Run → Run All”).
-
-Inspect intermediate outputs such as data processing, training steps, evaluation metrics, visualizations etc.
-
-To try different parameters or datasets (if supported), modify relevant cells and re-run.
-
-To test performance or behavior under new inputs (if applicable), you can add new cells or functions to load custom inputs and run model inference.
-
-If you add more code (e.g. new scripts, helper modules), it's recommended to convert notebooks into .py scripts or modularize code for clarity and reproducibility.
-
-Reproducing Final Results
+## Reproducing Final Results
 
 To reproduce the final results (as you obtained when originally running the notebooks):
 
-Use the same data (if external input/data files are needed) and keep the same random seed (if any seed is set in the notebooks).
+1. Use the same data (if external input/data files are needed) and keep the same random seed (if any seed is set in the notebooks).
+2. Run the notebooks from top → bottom without modification.
+3. Use the same versions of all dependencies (or very close) — differences in library versions may cause differences in results (especially in ML contexts).
+4. If there is any data-splitting, shuffling, or randomness involved (e.g. train/test split, random initialization), ensure that the random seed (if set) remains the same to get identical outputs.
 
-Run the notebooks from top → bottom without modification.
+If you want to automate this, consider exporting the notebooks (e.g. using `nbconvert`) or writing a wrapper script that runs all steps in a clean, reproducible environment.
 
-Use the same versions of all dependencies (or very close) — differences in library versions may cause differences in results (especially in ML contexts).
-
-If there is any data-splitting, shuffling, or randomness involved (e.g. train/test split, random initialization), ensure that the random seed (if set) remains the same to get identical outputs.
-
-If you want to automate this, consider exporting the notebooks (e.g. using nbconvert) or writing a wrapper script that runs all steps in a clean, reproducible environment.
-
-Expected Outputs & How to Interpret Them
+## Expected Outputs & How to Interpret Them
 
 Depending on the content of the notebooks, expected outputs may include:
 
-Processed data tables / summaries (e.g. data cleaning, transformations)
+* Processed data tables / summaries (e.g. data cleaning, transformations)
+* Trained model object(s) or metrics (e.g. accuracy, loss, evaluation scores)
+* Plots / visualizations (e.g. performance curves, feature importance, comparison graphs)
+* Any predictions or inferences generated by the model
 
-Trained model object(s) or metrics (e.g. accuracy, loss, evaluation scores)
+**Interpretation guidelines:**
 
-Plots / visualizations (e.g. performance curves, feature importance, comparison graphs)
+* For numeric metrics: lower/higher values may indicate better/worse model performance (depending on metric).
+* For visualizations: examine trends, outliers, and any relevant patterns.
+* If outputs include predictions or classifications: cross-check with ground truth (if available) or validation data to assess correctness.
+* Document any assumptions, data preprocessing steps, or hyperparameters used — this helps understand model behavior and replicate results.
 
-Any predictions or inferences generated by the model
+## Troubleshooting
 
-Interpretation guidelines:
+* **Missing dependencies / import errors:** Check the `import` lines in notebooks; install the missing package using `pip` (or `conda`) before re-running.
+* **Version-related issues:** If outputs differ unexpectedly (especially in ML models), try to use the same library versions as originally used.
+* **Notebook output truncated / plot not showing:** Ensure that you run cells in correct order (or “Restart & Run All”), and that your environment supports plotting (for Jupyter).
+* **Data or file paths not found:** If notebooks expect external data/files, ensure they are present in appropriate directories or update paths accordingly.
 
-For numeric metrics: lower/higher values may indicate better/worse model performance (depending on metric).
-
-For visualizations: examine trends, outliers, and any relevant patterns.
-
-If outputs include predictions or classifications: cross-check with ground truth or validation data to assess correctness.
-
-Document any assumptions, data preprocessing steps, or hyperparameters used — this helps understand model behavior and replicate results.
-
-You may consider adding a section inside the notebooks (or an external markdown/log) summarizing the “final outputs” (e.g. final accuracy, test results, model parameters) to make interpretation easier.
-
-Troubleshooting
-
-Missing dependencies / import errors: Check the import lines in notebooks; install the missing package using pip (or conda) before re-running.
-
-Version-related issues: If outputs differ unexpectedly (especially in ML models), try to use the same library versions as originally used.
-
-Notebook output truncated / plot not showing: Ensure that you run cells in correct order (or “Restart & Run All”), and that your environment supports plotting (for Jupyter).
-
-Data or file paths not found: If notebooks expect external data/files, ensure they are present in appropriate directories or update paths accordingly.
